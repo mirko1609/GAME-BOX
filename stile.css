@@ -277,7 +277,7 @@ section{
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     
 }
 
@@ -396,6 +396,13 @@ section{
     color: var(--acc);
     user-select: none;
 
+}
+
+.coming{
+    background-color: var(--sec);
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 
