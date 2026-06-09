@@ -166,11 +166,12 @@ header{
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 900;
+    transition: 0.4s ease;
 }
 
 .home .button a:hover{
     transform: translateY(-4px);
-    transition: 0.4s ease;
+    
 }
 .home .button .gioca{
     background-color: var(--btn);
@@ -185,10 +186,6 @@ header{
     border: solid 2px var(--btn);
     box-shadow: 0 0 5px var(--seco);
 }
-
-
-
-
 
 .scroll-indicator {
   position: absolute;
@@ -280,13 +277,15 @@ section{
     display: flex;
     flex-direction: column;
     height: 100%;
-
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     
 }
 
 .proj-card:hover{
-    transform: translateY(-3px);
-    transition: 0.4s ease;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px var(--acc);
+    
+
 }
 
 .proj-preview{
@@ -359,13 +358,21 @@ section{
     padding: 0.5rem;
     text-decoration: none;
     margin-top: auto;
+    transition: transform 0.3s ease;
 }
 
+.btn:hover{
+    transform: translateY(-4px);
+}
 .play-btn{
     
     color: var(--blue);
     font-weight: 900;
     font-size: 1.1rem;
+}
+
+.play-btn:hover{
+    color: var(--acc);
 }
 
 .proj-tags{
@@ -380,11 +387,210 @@ section{
     padding: 0.5rem;
     border-radius: 5px;
     font-size: 0.7rem;
+    transition: 0.2s ease;
 }
 
 .proj-tag:hover{
     transform: translateY(-2px);
-    transition: 0.2s ease;
+    
     color: var(--acc);
     user-select: none;
+
 }
+
+
+/* ================================================================
+   [RESPONSIVE] — Hamburger menu + Media Queries
+   Per rimuovere tutto il responsive: cancella da qui fino a
+   END [RESPONSIVE] alla fine del file
+   ================================================================ */
+
+/* Fix: section-heading::after usa position absolute ma mancava
+   position relative sul genitore — necessario per il trattino */
+.section-heading { position: relative; }
+
+/* I tag delle card non vanno a capo su schermi stretti senza questo */
+.proj-tags { flex-wrap: wrap; }
+
+/* ---------------------------------------------------------------
+   Hamburger button — nascosto di default, visibile su mobile
+   --------------------------------------------------------------- */
+.hamburger {
+    display: none;             /* mostrato via media query */
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 200;
+}
+.ham-bar {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+}
+/* Le tre barre diventano una X quando il menu è aperto */
+.hamburger.open .ham-bar:nth-child(1) { transform: translateY(7px)  rotate(45deg);  }
+.hamburger.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0);            }
+.hamburger.open .ham-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* Colora le barre al hover */
+.hamburger:hover .ham-bar { background: var(--btn); }
+
+/* ---------------------------------------------------------------
+   Mobile nav overlay — schermo intero sotto l'header
+   La visibilità è gestita dalla classe .open (aggiunta via JS)
+   --------------------------------------------------------------- */
+.mobile-nav {
+    position: fixed;
+    top: 7rem;          /* corrisponde all'altezza dell'header */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--back);
+    border-top: 1px solid var(--seco);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Stato chiuso: invisibile e non cliccabile */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+    /* delay su visibility: si nasconde DOPO che l'opacity finisce */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+}
+.mobile-nav.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    /* nessun delay: diventa visibile subito prima del fade-in */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+}
+
+/* Link dentro il menu mobile */
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+.mobile-nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.2s ease;
+}
+/* Sottolineatura centrata al hover */
+.mobile-nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: var(--btn);
+    transition: width 0.3s ease;
+}
+.mobile-nav-links a:hover           { color: var(--btn); }
+.mobile-nav-links a:hover::after    { width: 100%; }
+
+/* ---------------------------------------------------------------
+   Breakpoint: Laptop / schermi medi  ≤ 1100px
+   --- font più piccoli, grid passa a 2 colonne
+   --------------------------------------------------------------- */
+@media (max-width: 1100px) {
+    .container h1          { font-size: 3.5rem; }
+    .home                  { padding: 5rem 2.5rem; }
+    .project-grid          { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------------------------------------------------------------
+   Breakpoint: Tablet  ≤ 900px
+   --- hamburger attivato, hero in colonna, grid 2 colonne
+   --------------------------------------------------------------- */
+@media (max-width: 900px) {
+    /* Scambia nav desktop con hamburger */
+    .header-right   { display: none; }
+    .hamburger      { display: flex; }
+
+    /* Hero: stack verticale */
+    .container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    .container .testo   { text-align: center; }
+    .container h1       { font-size: 3rem; justify-content: center; }
+    .container h3       { font-size: 1rem; }
+    .container .preview img { max-width: 500px; }
+
+    /* Bottoni centrati */
+    .home .button { justify-content: center; }
+
+    /* Padding ridotto */
+    .home    { padding: 4rem 2rem; }
+    section  { padding: 4rem 2rem; }
+}
+
+/* ---------------------------------------------------------------
+   Breakpoint: Mobile  ≤ 620px
+   --- 1 colonna, immagine hero nascosta, bottoni full-width
+   --------------------------------------------------------------- */
+@media (max-width: 620px) {
+    .container h1 { font-size: 2.2rem; }
+
+    /* L'immagine hero toglie spazio prezioso su mobile: nascosta */
+    .container .preview { display: none; }
+
+    /* Bottoni in colonna full-width */
+    .home .button {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+    .home .button a { text-align: center; }
+
+    /* Una sola colonna per i giochi */
+    .project-grid { grid-template-columns: 1fr; }
+
+    .section-heading { font-size: 1.75rem; }
+    .proj-title      { font-size: 1.25rem; }
+    .home    { padding: 3rem 1.25rem; }
+    section  { padding: 3rem 1.25rem; }
+}
+
+/* ---------------------------------------------------------------
+   Breakpoint: Mobile piccolo  ≤ 400px
+   --- header compatto, testo logo ridotto
+   --------------------------------------------------------------- */
+@media (max-width: 400px) {
+    header {
+        padding: 0 1rem;
+        height: 5rem;   /* header più basso */
+    }
+    .box h1          { font-size: 1rem; }
+    .box .box-span   { display: none; } /* nasconde "/ Corso Informatica" */
+    .container h1    { font-size: 1.8rem; gap: 0.75rem; }
+
+    /* Il menu mobile deve iniziare dove finisce il nuovo header */
+    .mobile-nav          { top: 5rem; }
+    .mobile-nav-links    { gap: 2rem; }
+    .mobile-nav-links a  { font-size: 1.2rem; }
+}
+
+/* ================================================================
+   END [RESPONSIVE]
+   ================================================================ */

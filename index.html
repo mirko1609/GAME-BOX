@@ -23,9 +23,27 @@
                 <a href="classifica">Classifica</a>
                 <a href="about">Chi siamo</a>
             </nav>
-
         </div>
+
+        <!-- [RESPONSIVE] hamburger button — sostituisce il nav su mobile/tablet -->
+        <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+            <span class="ham-bar"></span>
+            <span class="ham-bar"></span>
+            <span class="ham-bar"></span>
+        </button>
+        <!-- END [RESPONSIVE] hamburger button -->
     </header>
+
+    <!-- [RESPONSIVE] menu mobile a schermo intero — controllato da script.js -->
+    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menu di navigazione">
+        <nav class="mobile-nav-links">
+            <a href="#home">Home</a>
+            <a href="#giochi">Giochi</a>
+            <a href="#classifica">Classifica</a>
+            <a href="#about">Chi siamo</a>
+        </nav>
+    </div>
+    <!-- END [RESPONSIVE] menu mobile -->
 
     <section id="home" class="home">
         <div class="container">
@@ -52,14 +70,13 @@
         <div class="button fade_in">
             <a href="#giochi" class="gioca">Gioca ora 🎮</a>
             <a href="#classifica" class="classifica">Vedi Classifica 🏆</a>
-
         </div>
     </section>
 
-    <div class="scroll-indicator">
+    <a href="#giochi" class="scroll-indicator">
         <div class="arrow"></div>
         <div class="arrow"></div>
-    </div>
+    </a>
 
     <section id="giochi" class="giochi">
         <div class="section-heading fade_in">
@@ -92,7 +109,7 @@
             <!--GIOCO 2-->
             <div class="proj-card">
                 <div class="proj-preview">
-                    <img src="" alt="">
+                    <img src="img/flappy_bird.png" alt="Flappy Bird">
                     <div class="proj-preview-placeholder">Flappy Bird</div>
                 </div>
                 <div class="proj-body">
@@ -113,7 +130,7 @@
             <!--GIOCO 3-->
             <div class="proj-card">
                 <div class="proj-preview">
-                    <img src="" alt="">
+                    <img src="img/acchiappa.png" alt="Acchiappa la Talpa">
                     <div class="proj-preview-placeholder">Acchiappa la Talpa</div>
                 </div>
                 <div class="proj-body">
@@ -131,6 +148,68 @@
                 </div> 
             </div>
 
+            <!--GIOCO 4-->
+            <div class="proj-card">
+                <div class="proj-preview">
+                    <img src="" alt="">
+                    <div class="proj-preview-placeholder">Coming Soon</div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-title">In arrivo presto...</div>
+                    <p class="proj-desc">Non perderti i nuovi giochi in arrivo!</p>
+                    <a class="btn" href="" target="_blank">
+                        <div class="play-btn">Gioca</div>
+                    </a>
+                    <div class="proj-tags">
+                        <span class="proj-tag">HTML</span>
+                        <span class="proj-tag">CSS</span>
+                        <span class="proj-tag">JavaScript</span>
+                        <span class="proj-tag">Game Loop</span>
+                    </div>
+                </div> 
+            </div>
+
+            <!--GIOCO 5-->
+            <div class="proj-card">
+                <div class="proj-preview">
+                    <img src="" alt="">
+                    <div class="proj-preview-placeholder">Coming Soon</div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-title">In arrivo presto...</div>
+                    <p class="proj-desc">Non perderti i nuovi giochi in arrivo!</p>
+                    <a class="btn" href="" target="_blank">
+                        <div class="play-btn">Gioca</div>
+                    </a>
+                    <div class="proj-tags">
+                        <span class="proj-tag">HTML</span>
+                        <span class="proj-tag">CSS</span>
+                        <span class="proj-tag">JavaScript</span>
+                        <span class="proj-tag">Game Loop</span>
+                    </div>
+                </div> 
+            </div>
+
+            <!--GIOCO 6-->
+            <div class="proj-card">
+                <div class="proj-preview">
+                    <img src="" alt="">
+                    <div class="proj-preview-placeholder">Coming Soon</div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-title">In arrivo presto...</div>
+                    <p class="proj-desc">Non perderti i nuovi giochi in arrivo!</p>
+                    <a class="btn" href="" target="_blank">
+                        <div class="play-btn">Gioca</div>
+                    </a>
+                    <div class="proj-tags">
+                        <span class="proj-tag">HTML</span>
+                        <span class="proj-tag">CSS</span>
+                        <span class="proj-tag">JavaScript</span>
+                        <span class="proj-tag">Game Loop</span>
+                    </div>
+                </div> 
+            </div>
 
         </div>
     </section>
