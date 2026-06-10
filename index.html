@@ -12,7 +12,7 @@
 
     <header>
         <div class="box">
-            <img src="/img/game_box2.png" alt="game box logo" width="72px" height="60px" >
+            <img class="logo" src="img/game_box2.png" alt="game box logo">
             <h1> GAME <span class="title-box">BOX</span> <span class="box-span"> / Corso Informatica </span></h1>
         </div>
 
@@ -20,8 +20,8 @@
             <nav>
                 <a href="#home">Home</a>
                 <a href="#giochi">Giochi</a>
-                <a href="classifica">Classifica</a>
-                <a href="about">Chi siamo</a>
+                <a href="#classifica">Classifica</a>
+                <a href="#about">Chi siamo</a>
             </nav>
         </div>
 
@@ -214,7 +214,106 @@
         </div>
     </section>
     
+    <section id="classifica" class="classifica">
+        <div class="section-heading fade_in">
+            Classifica Globale
+        </div>
 
-    <script src="script.js"></script>
+        <div class="controls">
+            <select id="game-filter">
+                 <option value="">— Tutti i giochi —</option>
+            </select>
+            <select id="limit-filter">
+                <option value="10">Top 10</option>
+                <option value="25">Top 25</option>
+                <option value="50">Top 50</option>
+                <option value="">Tutti</option>
+            </select>
+            <button id="refresh-btn" onclick="refresh()">↺ Aggiorna</button>
+        </div>
+
+        <div id="status" class="loading">Connessione in corso...</div>
+
+        <div class="table-wrap">
+            <table>
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Giocatore</th>
+                <th>Gioco</th>
+                <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="ranking-body">
+                <tr><td colspan="4" class="empty">Caricamento...</td></tr>
+            </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="about" class="info">
+        <div class="section-heading fade_in">
+            Chi Siamo
+        </div>
+        <div class="container-2">
+            <div class="progetto">
+                <div class="progetto-head">Gli Studenti</div>
+                <div class="progetto-desc">
+                    Gli studenti della 3D Informatica nel 2026 hanno sviluppato competenze sulle tecnologie web, realizzando veri e 
+                    propri videogiochi browser-based e mettendo in pratica concetti di programmazione, logica e progettazione software.<br>
+                    <span class="desc-2">Dalla progettazione dell'interfaccia alla logica di gioco, ogni studente ha affrontato 
+                        le stesse sfide che caratterizzano lo sviluppo di un vero software.
+                    </span>
+                </div>
+            </div>
+
+            <div class="progetto">
+                <div class="progetto-head">Il progetto</div>
+                <div class="progetto-desc">
+                    Game Box trasforma i progetti scolastici in un'esperienza condivisa, permettendo a 
+                    chiunque di provare i giochi e competere nelle classifiche online.<br>
+                    <span class="desc-2">Ogni gioco è stato progettato e sviluppato dagli studenti utilizzando
+                        tecnologie web come HTML, CSS e JavaScript.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>    
+        <div class="footer-grid">
+            <div class="grid-1">
+                <div class="footer-head">
+                    <img src="img/game_box2.png" alt="Game Box logo" class="logo">
+                    <h1>GAME <span>BOX</span></h1>
+                </div>
+
+                <p>I giochi degli studenti, le sfide di tutti.</p>
+
+            </div>
+
+            <div class="grid-2">
+                <h1>Link Rapidi</h1>
+                <div class="link">
+                    <a href="#home">Home</a>
+                    <a href="#giochi">Giochi</a>
+                    <a href="#classifica">Classifica</a>
+                    <a href="#about">Chi Siamo</a>
+                    <a href="https://github.com/mirko1609/GAME-BOX" target="_blank">Github</a>
+                    
+                </div>
+            </div>
+            
+            <div class="grid-3">
+                <h1>© 2026 — Tutti i diritti riservati</h1>
+            </div>
+            
+
+        </div>
+
+    </footer>
+
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
