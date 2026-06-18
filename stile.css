@@ -796,6 +796,8 @@ td{
     .container {
         gap: 2rem;
     }
+
+    .container .preview img { max-width: 380px ;}
     .footer-grid {
         padding: 2rem 1.5rem;
     }
