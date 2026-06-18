@@ -796,7 +796,9 @@ td{
     .container {
         gap: 2rem;
     }
-
+    section{
+        max-width: 670px;
+    }
     .container .preview img { max-width: 380px ;}
     .footer-grid {
         padding: 2rem 1.5rem;
