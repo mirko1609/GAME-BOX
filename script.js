@@ -70,6 +70,8 @@ window.addEventListener('resize', () => {
 // ================================================================
 // END [RESPONSIVE]
 // ================================================================
+const h = document.querySelector('.container h1');
+console.log('H1:', getComputedStyle(h).fontSize, '| HTML base:', getComputedStyle(document.documentElement).fontSize);
 
 
 // ================================================================
