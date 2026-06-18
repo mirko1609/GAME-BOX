@@ -787,14 +787,14 @@ td{
 @media (max-width: 1380px) {
     html{font-size: 12.5px;}
     .home {
-        padding: 5rem 2.5rem;
+        padding: 4rem 2rem;
         height: auto;       /* evita che il 90vh spacchi su schermi bassi */
     }
     .container h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
     .container {
-        gap: 2.5rem;
+        gap: 2rem;
     }
     .footer-grid {
         padding: 2rem 1.5rem;
