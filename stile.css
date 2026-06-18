@@ -128,24 +128,25 @@ header{
 .container h1{
     display: flex;
     gap: 1.5rem;
-    font-size: 5rem;
+    font-size: clamp(2.8rem, 4.5vw, 5rem);
     font-weight: 900;
     letter-spacing: 2px;
 }
 
 .container h3{
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-top: 0.2rem;
     
 }
 
 .container p{
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     width: 100%;
     margin-top: 1rem;
     color: #dde8f0bd;
+    font-weight: 900;
 }
 
 .container .preview{
@@ -781,10 +782,29 @@ td{
 .mobile-nav-links a:hover::after    { width: 100%; }
 
 /* ---------------------------------------------------------------
+   Breakpoint: Laptop medio  ≤ 1380px
+   --------------------------------------------------------------- */
+@media (max-width: 1380px) {
+    .home {
+        padding: 5rem 2.5rem;
+        height: auto;       /* evita che il 90vh spacchi su schermi bassi */
+    }
+    .container h1 {
+        font-size: 4rem;
+    }
+    .container {
+        gap: 2.5rem;
+    }
+    .footer-grid {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* ---------------------------------------------------------------
    Breakpoint: Laptop / schermi medi  ≤ 1100px
    --------------------------------------------------------------- */
 @media (max-width: 1100px) {
-    .container h1          { font-size: 3.5rem; }
+    .container h1          { font-size: 3rem; }
     .home                  { padding: 5rem 2.5rem; height: auto; }
     .project-grid          { grid-template-columns: 1fr 1fr; }
     .footer-grid           { padding: 2rem; }
